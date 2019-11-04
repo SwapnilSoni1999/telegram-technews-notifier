@@ -19,7 +19,7 @@ class GadgetsNow:
         news_section = soup.find('div', { 'class': [ 'tech_list', 'ctn_stories' ] })
         top_post = news_section.find('li')
         return {
-            'title': top_post.find('a')['title'],
-            'url': top_post.find('a')['href'],
+            'title': top_post.find('a')['title'].replace('\n', ''),
+            'url': top_post.find('a')['href'].replace,
             'time': getTime(top_post.find('span', { 'class': 'w_bylinec' })['rodate'])
         }

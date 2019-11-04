@@ -1,5 +1,5 @@
-from sites.gadgetsnow import GadgetsNow
+from sites.gizmodo import Gizmodo
 
-gn = GadgetsNow()
+g = Gizmodo()
 
-print(gn.get_latest_news())
+print(g.latest_post())
