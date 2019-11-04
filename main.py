@@ -1,5 +1,5 @@
 import time
-from sites import (beebom, digit, gadgetsnow, gizmodo, androidauthority)
+from sites import (beebom, digit, gadgetsnow, gizmodo, androidauthority, xda)
 
 # initiate all sites
 beebom = beebom.Beebom()
@@ -7,6 +7,7 @@ digit = digit.Digit()
 gadgetsnow = gadgetsnow.GadgetsNow()
 gizmodo = gizmodo.Gizmodo()
 androidauthority = androidauthority.AndroidAuthority()
+xda = xda.XDA()
 
 # get all posts from all sites
 beebom_post = beebom.latest_post()
@@ -14,6 +15,7 @@ digit_post = digit.latest_news()
 gadgetsnow_post = gadgetsnow.get_latest_news()
 gizmodo_post = gizmodo.latest_post()
 androidauthority_post = androidauthority.latest_news()
+xda_post = xda.latest_post()
 
 while True:
     # Beebom
@@ -57,6 +59,14 @@ while True:
         androidauthority_post = new_post_androidauthority
     else:
         print('No new post found on AndroidAuthority!')
+
+    # xda-developers
+    new_post_xda = xda.latest_post()
+    if new_post_xda['title'] != xda_post['title']:
+        print('New post found on xda-developers!', new_post_xda)
+        xda_post = new_post_xda
+    else:
+        print('No new post found on xda-developers')
     
     time.sleep(60)
     
