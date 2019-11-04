@@ -1,6 +1,5 @@
-import sites
+from sites.gadgetsnow import GadgetsNow
 
-digit = sites.Digit()
+gn = GadgetsNow()
 
-res = digit.getNews()
-print(res)
+print(gn.get_latest_news())
