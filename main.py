@@ -1,17 +1,19 @@
 import time
-from sites import (beebom, digit, gadgetsnow, gizmodo)
+from sites import (beebom, digit, gadgetsnow, gizmodo, androidauthority)
 
 # initiate all sites
 beebom = beebom.Beebom()
 digit = digit.Digit()
 gadgetsnow = gadgetsnow.GadgetsNow()
 gizmodo = gizmodo.Gizmodo()
+androidauthority = androidauthority.AndroidAuthority()
 
 # get all posts from all sites
 beebom_post = beebom.latest_post()
 digit_post = digit.latest_news()
 gadgetsnow_post = gadgetsnow.get_latest_news()
 gizmodo_post = gizmodo.latest_post()
+androidauthority_post = androidauthority.latest_news()
 
 while True:
     # Beebom
@@ -47,6 +49,14 @@ while True:
         gizmodo_post = new_post_gizmodo
     else:
         print('No new post found on GizModo')
+
+    # AndroidAuthority
+    new_post_androidauthority = androidauthority.latest_news()
+    if new_post_androidauthority['title'] != androidauthority_post['title']:
+        print('New post found on AndroidAuthority!', new_post_androidauthority)
+        androidauthority_post = new_post_androidauthority
+    else:
+        print('No new post found on AndroidAuthority!')
     
     time.sleep(60)
     

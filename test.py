@@ -1,5 +1,5 @@
-from sites.gizmodo import Gizmodo
+from sites.xda import XDA 
 
-g = Gizmodo()
+g = XDA()
 
 print(g.latest_post())
