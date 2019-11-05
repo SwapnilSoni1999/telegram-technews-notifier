@@ -1,5 +1,5 @@
-from sites.xda import XDA 
+from sites.techradar import TechRadar 
 
-g = XDA()
+g = TechRadar()
 
-print(g.latest_post())
+print(g.latest_news())

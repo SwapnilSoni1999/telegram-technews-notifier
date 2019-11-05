@@ -1,5 +1,13 @@
 import time
-from sites import (beebom, digit, gadgetsnow, gizmodo, androidauthority, xda)
+from sites import (
+                beebom, 
+                digit, 
+                gadgetsnow, 
+                gizmodo, 
+                androidauthority, 
+                xda,
+                techradar
+            )
 
 # initiate all sites
 beebom = beebom.Beebom()
@@ -8,6 +16,7 @@ gadgetsnow = gadgetsnow.GadgetsNow()
 gizmodo = gizmodo.Gizmodo()
 androidauthority = androidauthority.AndroidAuthority()
 xda = xda.XDA()
+techradar = techradar.TechRadar()
 
 # get all posts from all sites
 beebom_post = beebom.latest_post()
@@ -16,6 +25,7 @@ gadgetsnow_post = gadgetsnow.get_latest_news()
 gizmodo_post = gizmodo.latest_post()
 androidauthority_post = androidauthority.latest_news()
 xda_post = xda.latest_post()
+techradar_post = techradar.latest_news()
 
 while True:
     # Beebom
@@ -67,6 +77,15 @@ while True:
         xda_post = new_post_xda
     else:
         print('No new post found on xda-developers')
+
+    # TechRadar
+    new_post_techradar = techradar.latest_news()
+    if new_post_techradar['title'] != techradar_post['title']:
+        print('New post found on TechRadar!', new_post_techradar)
+        techradar_post = new_post_techradar
+    else:
+        print('No new post found on TechRadar')
+    
     
     time.sleep(60)
     
