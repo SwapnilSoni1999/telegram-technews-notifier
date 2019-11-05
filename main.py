@@ -6,7 +6,8 @@ from sites import (
                 gizmodo, 
                 androidauthority, 
                 xda,
-                techradar
+                techradar,
+                bgr
             )
 
 # initiate all sites
@@ -17,6 +18,9 @@ gizmodo = gizmodo.Gizmodo()
 androidauthority = androidauthority.AndroidAuthority()
 xda = xda.XDA()
 techradar = techradar.TechRadar()
+bgr = bgr.BGR()
+
+print('Starting Watch on Websites...')
 
 # get all posts from all sites
 beebom_post = beebom.latest_post()
@@ -26,6 +30,7 @@ gizmodo_post = gizmodo.latest_post()
 androidauthority_post = androidauthority.latest_news()
 xda_post = xda.latest_post()
 techradar_post = techradar.latest_news()
+bgr_post = bgr.latest_post()
 
 while True:
     # Beebom
@@ -86,6 +91,13 @@ while True:
     else:
         print('No new post found on TechRadar')
     
-    
+    # BGR
+    new_post_bgr = bgr.latest_post()
+    if new_post_bgr['title'] != bgr_post['title']:
+        print('New post found on BGR!', new_post_bgr)
+        bgr_post = new_post_bgr
+    else:
+        print('No new post found on BGR!')
+
     time.sleep(60)
     

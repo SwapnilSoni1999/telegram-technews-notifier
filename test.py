@@ -1,5 +1,5 @@
-from sites.techradar import TechRadar 
+from sites.bgr import BGR 
 
-g = TechRadar()
+g = BGR()
 
-print(g.latest_news())
+print(g.latest_post())
