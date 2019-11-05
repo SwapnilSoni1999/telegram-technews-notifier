@@ -7,7 +7,8 @@ from sites import (
                 androidauthority, 
                 xda,
                 techradar,
-                bgr
+                bgr,
+                hexus
             )
 
 # initiate all sites
@@ -19,6 +20,7 @@ androidauthority = androidauthority.AndroidAuthority()
 xda = xda.XDA()
 techradar = techradar.TechRadar()
 bgr = bgr.BGR()
+hexus = hexus.Hexus()
 
 print('Starting Watch on Websites...')
 
@@ -31,10 +33,12 @@ androidauthority_post = androidauthority.latest_news()
 xda_post = xda.latest_post()
 techradar_post = techradar.latest_news()
 bgr_post = bgr.latest_post()
+hexus_post = hexus.latest_news()
+
+print('Looping...')
 
 while True:
     # Beebom
-    # curr_time = int(time.time())
     new_post_beebom = beebom.latest_post()
     if new_post_beebom['time'] > beebom_post['time']:
         print('Found new post on Beebom!', new_post_beebom)
@@ -98,6 +102,14 @@ while True:
         bgr_post = new_post_bgr
     else:
         print('No new post found on BGR!')
+
+    # Hexus
+    new_post_hexus = hexus.latest_news()
+    if new_post_hexus['title'] != hexus_post['title']:
+        print('New post found on Hexus!', new_post_hexus)
+        hexus_post = new_post_hexus
+    else:
+        print('No new post found on Hexus')
 
     time.sleep(60)
     

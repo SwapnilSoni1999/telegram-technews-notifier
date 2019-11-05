@@ -1,5 +1,5 @@
-from sites.bgr import BGR 
+from sites.hexus import Hexus 
 
-g = BGR()
+g = Hexus()
 
-print(g.latest_post())
+print(g.latest_news())
