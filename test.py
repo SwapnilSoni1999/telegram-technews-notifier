@@ -1,5 +1,5 @@
-from sites.hexus import Hexus 
+from sites.gsmarena import GSMArena 
 
-g = Hexus()
+g = GSMArena()
 
-print(g.latest_news())
+print(g.latest_post())

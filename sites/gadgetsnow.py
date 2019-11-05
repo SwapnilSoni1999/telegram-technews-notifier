@@ -20,6 +20,6 @@ class GadgetsNow:
         top_post = news_section.find('li')
         return {
             'title': top_post.find('a')['title'].replace('\n', ''),
-            'url': top_post.find('a')['href'].replace,
+            'url': 'https://www.gadgetsnow.com' + top_post.find('a')['href'],
             'time': getTime(top_post.find('span', { 'class': 'w_bylinec' })['rodate'])
         }

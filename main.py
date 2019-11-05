@@ -8,8 +8,10 @@ from sites import (
                 xda,
                 techradar,
                 bgr,
-                hexus
+                hexus,
+                gsmarena
             )
+from service import telegram
 
 # initiate all sites
 beebom = beebom.Beebom()
@@ -21,8 +23,10 @@ xda = xda.XDA()
 techradar = techradar.TechRadar()
 bgr = bgr.BGR()
 hexus = hexus.Hexus()
+gsmarena = gsmarena.GSMArena()
 
 print('Starting Watch on Websites...')
+telegram.sendMessage('Starting Watch on Websites...')
 
 # get all posts from all sites
 beebom_post = beebom.latest_post()
@@ -34,8 +38,10 @@ xda_post = xda.latest_post()
 techradar_post = techradar.latest_news()
 bgr_post = bgr.latest_post()
 hexus_post = hexus.latest_news()
+gsmarena_post = gsmarena.latest_post()
 
-print('Looping...')
+print('Service Started!')
+telegram.sendMessage('Started Service!')
 
 while True:
     # Beebom
@@ -43,6 +49,7 @@ while True:
     if new_post_beebom['time'] > beebom_post['time']:
         print('Found new post on Beebom!', new_post_beebom)
         beebom_post = new_post_beebom
+        telegram.send_alert('Beebom', new_post_beebom['title'], new_post_beebom['url'])
     else:
         print('No new post found on beebom')
 
@@ -52,6 +59,7 @@ while True:
     if curr_title != new_post_digit['title']:
         print('New Post found on digit!', new_post_digit)
         digit_post = new_post_digit
+        telegram.send_alert('Digit', new_post_digit['title'], new_post_digit['url'])
     else:
         print('No new post found on digit')
 
@@ -60,6 +68,7 @@ while True:
     if new_post_gn['time'] > gadgetsnow_post['time']:
         print('New post found on Gadgets Now', new_post_gn)
         gadgetsnow_post = new_post_gn
+        telegram.send_alert('GadgetsNow', new_post_gn['title'], new_post_gn['url'])
     else:
         print('No new post found on GadgetsNow!')
 
@@ -68,6 +77,7 @@ while True:
     if new_post_gizmodo['title'] != gizmodo_post['title']:
         print('New post found on GizModo!', new_post_gizmodo)
         gizmodo_post = new_post_gizmodo
+        telegram.send_alert('GizModo', new_post_gizmodo['title'], new_post_gizmodo['url'])
     else:
         print('No new post found on GizModo')
 
@@ -76,6 +86,7 @@ while True:
     if new_post_androidauthority['title'] != androidauthority_post['title']:
         print('New post found on AndroidAuthority!', new_post_androidauthority)
         androidauthority_post = new_post_androidauthority
+        telegram.send_alert('AndroidAuthority', new_post_androidauthority['title'], new_post_androidauthority['url'])
     else:
         print('No new post found on AndroidAuthority!')
 
@@ -84,6 +95,7 @@ while True:
     if new_post_xda['title'] != xda_post['title']:
         print('New post found on xda-developers!', new_post_xda)
         xda_post = new_post_xda
+        telegram.send_alert('xda-developers', new_post_xda['title'], new_post_xda['url'])
     else:
         print('No new post found on xda-developers')
 
@@ -92,6 +104,7 @@ while True:
     if new_post_techradar['title'] != techradar_post['title']:
         print('New post found on TechRadar!', new_post_techradar)
         techradar_post = new_post_techradar
+        telegram.send_alert('TechRadar', new_post_techradar['title'], new_post_techradar['url'])
     else:
         print('No new post found on TechRadar')
     
@@ -100,6 +113,7 @@ while True:
     if new_post_bgr['title'] != bgr_post['title']:
         print('New post found on BGR!', new_post_bgr)
         bgr_post = new_post_bgr
+        telegram.send_alert('BGR', new_post_bgr['title'], new_post_bgr['url'])
     else:
         print('No new post found on BGR!')
 
@@ -108,8 +122,18 @@ while True:
     if new_post_hexus['title'] != hexus_post['title']:
         print('New post found on Hexus!', new_post_hexus)
         hexus_post = new_post_hexus
+        telegram.send_alert('Hexus', new_post_hexus['title'], new_post_hexus['url'])
     else:
         print('No new post found on Hexus')
+
+    # GSMArena
+    new_post_gsmarena = gsmarena.latest_post()
+    if new_post_gsmarena['title'] != gsmarena_post['title']:
+        print('New post found on GSMArena!', new_post_gsmarena)
+        gsmarena_post = new_post_gsmarena
+        telegram.send_alert('GSMArena', new_post_gsmarena['title'], new_post_gsmarena['url'])
+    else:
+        print('No new post found on GSMArena!')
 
     time.sleep(60)
     
