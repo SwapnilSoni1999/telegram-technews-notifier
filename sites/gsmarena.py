@@ -11,5 +11,5 @@ class GSMArena:
         top_post = soup.find('div', { 'class': 'news-item' })
         return {
             'title': top_post.find('h3').text.replace('\n', ''),
-            'url': top_post.find('a')['href']
+            'url': 'https://www.gsmarena.com/' + top_post.find('a')['href']
         }
