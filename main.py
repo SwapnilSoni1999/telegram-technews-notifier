@@ -15,30 +15,50 @@ from service import telegram
 
 # initiate all sites
 beebom = beebom.Beebom()
+telegram.sendMessage('Initiated Beebom!')
 digit = digit.Digit()
+telegram.sendMessage('Initiated Digit!')
 gadgetsnow = gadgetsnow.GadgetsNow()
+telegram.sendMessage('Initiated GadgetsNow')
 gizmodo = gizmodo.Gizmodo()
+telegram.sendMessage('Initiated GizModo')
 androidauthority = androidauthority.AndroidAuthority()
+telegram.sendMessage('Initiated AndroidAuthority')
 xda = xda.XDA()
+telegram.sendMessage('Initiated XDA')
 techradar = techradar.TechRadar()
+telegram.sendMessage('Initiated TechRadar')
 bgr = bgr.BGR()
+telegram.sendMessage('Initiated BGR')
 hexus = hexus.Hexus()
+telegram.sendMessage('Initiated Hexus')
 gsmarena = gsmarena.GSMArena()
+telegram.sendMessage('Initiated GSMArena')
 
 print('Starting Watch on Websites...')
 telegram.sendMessage('Starting Watch on Websites...')
 
 # get all posts from all sites
 beebom_post = beebom.latest_post()
+telegram.sendMessage('Fetched Beebom')
 digit_post = digit.latest_news()
+telegram.sendMessage('Fetched Digit')
 gadgetsnow_post = gadgetsnow.get_latest_news()
+telegram.sendMessage('Fetched GadgetsNow')
 gizmodo_post = gizmodo.latest_post()
+telegram.sendMessage('Fetched GizModo')
 androidauthority_post = androidauthority.latest_news()
+telegram.sendMessage('Fetched AndroidAuthority')
 xda_post = xda.latest_post()
+telegram.sendMessage('Fetched XDA')
 techradar_post = techradar.latest_news()
+telegram.sendMessage('Fetched TechRadar')
 bgr_post = bgr.latest_post()
+telegram.sendMessage('Fetched BGR')
 hexus_post = hexus.latest_news()
+telegram.sendMessage('Fetched Hexus')
 gsmarena_post = gsmarena.latest_post()
+telegram.sendMessage('Fetched GSMArena')
 
 print('Service Started!')
 telegram.sendMessage('Started Service!')
@@ -84,11 +104,11 @@ while True:
     # AndroidAuthority
     new_post_androidauthority = androidauthority.latest_news()
     if new_post_androidauthority['title'] != androidauthority_post['title']:
-        print('New post found on AndroidAuthority!', new_post_androidauthority)
-        androidauthority_post = new_post_androidauthority
-        telegram.send_alert('AndroidAuthority', new_post_androidauthority['title'], new_post_androidauthority['url'])
+       print('New post found on AndroidAuthority!', new_post_androidauthority)
+       androidauthority_post = new_post_androidauthority
+       telegram.send_alert('AndroidAuthority', new_post_androidauthority['title'], new_post_androidauthority['url'])
     else:
-        print('No new post found on AndroidAuthority!')
+       print('No new post found on AndroidAuthority!')
 
     # xda-developers
     new_post_xda = xda.latest_post()
