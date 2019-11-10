@@ -12,6 +12,7 @@ from sites import (
                 gsmarena
             )
 from service import telegram
+import random
 
 # initiate all sites
 beebom = beebom.Beebom()
@@ -155,5 +156,5 @@ while True:
     else:
         print('No new post found on GSMArena!')
 
-    time.sleep(60)
+    time.sleep(random.randint(60,100))
     
