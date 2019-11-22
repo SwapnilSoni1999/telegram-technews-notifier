@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+import service.telegram as telegram
 
 class Hexus:
     def __init__(self):
-        pass
+        telegram.sendMessage('Initiated Hexus')
 
     def latest_news(self):
         res = requests.get('https://hexus.net/tech/')

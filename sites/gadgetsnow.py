@@ -2,10 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import time
+import service.telegram as telegram
 
 class GadgetsNow:
     def __init__(self):
-        pass
+        telegram.sendMessage('Initiated GadgetsNow')
 
     def get_latest_news(self):
 

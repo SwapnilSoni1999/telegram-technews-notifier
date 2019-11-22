@@ -1,7 +1,7 @@
 import requests
 import json
 
-credentials = json.load(open('./../config.json', 'r'))
+credentials = json.load(open('config.json', 'r'))
 
 token = credentials['BOT_TOKEN'] # Your Bot token from config.json
 chat_id = credentials['chat_id'] # Message you want to send to a specific chat!

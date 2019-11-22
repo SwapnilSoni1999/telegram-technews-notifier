@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+import service.telegram as telegram
 
 class TechRadar:
     def __init__(self):
-        pass
+        telegram.sendMessage('Initiated TechRadar')
 
     def latest_news(self):
         res = requests.get('https://www.techradar.com/in/news')

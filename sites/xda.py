@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+import service.telegram as telegram
 
 class XDA:
     def __init__(self):
-        pass
+        telegram.sendMessage('Initiated XDA')
 
     def latest_post(self):
         res = requests.get('https://www.xda-developers.com/category/xda-news/')

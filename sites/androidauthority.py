@@ -1,9 +1,10 @@
 import cfscrape
 from bs4 import BeautifulSoup
+import service.telegram as telegram
 
 class AndroidAuthority:
     def __init__(self):
-        pass
+        telegram.sendMessage('Initiated AndroidAuthority')
 
     def latest_news(self):
         scraper = cfscrape.create_scraper()

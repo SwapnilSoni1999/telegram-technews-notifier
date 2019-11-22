@@ -2,11 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import time
-
+import service.telegram as telegram
 
 class Beebom:
     def __init__(self):
-        pass
+        telegram.sendMessage('Initiated Beebom!')
     
     def getNews(self):
         res = requests.get('https://beebom.com/category/news/')

@@ -2,12 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import time
-
+import service.telegram as telegram
 
 class Digit:
     def __init__(self):
-        pass
-        
+        telegram.sendMessage('Initiated Digit!')        
 
     def latest_news(self):
         res = requests.get('https://www.digit.in/news/')

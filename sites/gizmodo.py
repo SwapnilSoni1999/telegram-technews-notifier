@@ -1,10 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import service.telegram as telegram
 
 class Gizmodo:
     def __init__(self):
-        pass
+        telegram.sendMessage('Initiated GizModo')
 
     def latest_post(self):
         res = requests.get('https://gizmodo.com/tag/technology')
