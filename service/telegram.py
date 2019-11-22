@@ -1,7 +1,10 @@
 import requests
+import json
 
-token = ''
-chat_id = ''
+credentials = json.load(open('./../config.json', 'r'))
+
+token = credentials['BOT_TOKEN'] # Your Bot token from config.json
+chat_id = credentials['chat_id'] # Message you want to send to a specific chat!
 
 def sendMessage(message):
     url = f'https://api.telegram.org/bot{token}/sendMessage'
