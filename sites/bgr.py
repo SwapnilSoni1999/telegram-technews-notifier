@@ -4,7 +4,7 @@ import service.telegram as telegram
 
 class BGR:
     def __init__(self):
-        telegram.sendMessage('Initiated BGR')
+        pass
 
     def latest_post(self):
         res = requests.get('https://www.bgr.in/category/news/')

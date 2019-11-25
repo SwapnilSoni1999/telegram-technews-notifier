@@ -4,7 +4,7 @@ import service.telegram as telegram
 
 class XDA:
     def __init__(self):
-        telegram.sendMessage('Initiated XDA')
+        pass
 
     def latest_post(self):
         res = requests.get('https://www.xda-developers.com/category/xda-news/')

@@ -4,7 +4,7 @@ import service.telegram as telegram
 
 class GSMArena:
     def __init__(self):
-        telegram.sendMessage('Initiated GSMArena')
+        pass
 
     def latest_post(self):
         res = requests.get('https://www.gsmarena.com/news.php3')

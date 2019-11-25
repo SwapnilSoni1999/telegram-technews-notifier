@@ -6,7 +6,7 @@ import service.telegram as telegram
 
 class Digit:
     def __init__(self):
-        telegram.sendMessage('Initiated Digit!')        
+        pass      
 
     def latest_news(self):
         res = requests.get('https://www.digit.in/news/')

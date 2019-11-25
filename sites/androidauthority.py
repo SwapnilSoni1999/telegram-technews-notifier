@@ -4,7 +4,7 @@ import service.telegram as telegram
 
 class AndroidAuthority:
     def __init__(self):
-        telegram.sendMessage('Initiated AndroidAuthority')
+        pass
 
     def latest_news(self):
         scraper = cfscrape.create_scraper()

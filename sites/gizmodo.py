@@ -5,7 +5,7 @@ import service.telegram as telegram
 
 class Gizmodo:
     def __init__(self):
-        telegram.sendMessage('Initiated GizModo')
+        pass
 
     def latest_post(self):
         res = requests.get('https://gizmodo.com/tag/technology')
@@ -15,6 +15,6 @@ class Gizmodo:
         
         data = article.find('div', { 'class': [ 'js_editor-tools', 'sc-1i9kufk-0', 'cKYknA' ] })['data-state']
         return {
-            'title': article.find('h1').text,
+            'title': article.find('h2').text,
             'url': json.loads(data)['postPermalink']
         }

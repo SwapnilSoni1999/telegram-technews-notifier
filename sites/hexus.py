@@ -4,7 +4,7 @@ import service.telegram as telegram
 
 class Hexus:
     def __init__(self):
-        telegram.sendMessage('Initiated Hexus')
+        pass
 
     def latest_news(self):
         res = requests.get('https://hexus.net/tech/')

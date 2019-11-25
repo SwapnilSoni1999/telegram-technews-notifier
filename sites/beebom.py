@@ -6,7 +6,7 @@ import service.telegram as telegram
 
 class Beebom:
     def __init__(self):
-        telegram.sendMessage('Initiated Beebom!')
+        pass
     
     def getNews(self):
         res = requests.get('https://beebom.com/category/news/')

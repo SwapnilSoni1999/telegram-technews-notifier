@@ -4,7 +4,7 @@ import service.telegram as telegram
 
 class TechRadar:
     def __init__(self):
-        telegram.sendMessage('Initiated TechRadar')
+        pass
 
     def latest_news(self):
         res = requests.get('https://www.techradar.com/in/news')

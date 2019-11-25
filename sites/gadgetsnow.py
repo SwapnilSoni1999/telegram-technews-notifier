@@ -6,7 +6,7 @@ import service.telegram as telegram
 
 class GadgetsNow:
     def __init__(self):
-        telegram.sendMessage('Initiated GadgetsNow')
+        pass
 
     def get_latest_news(self):
 
