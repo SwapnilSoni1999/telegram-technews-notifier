@@ -14,5 +14,5 @@ class Hexus:
 
         return {
             'title': first_post.find('h2').text.replace('\n', ''),
-            'url': first_post.find('a')['href']
+            'url': 'https://hexus.net' + first_post.find('a')['href']
         }
